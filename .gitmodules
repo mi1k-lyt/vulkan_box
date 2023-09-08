@@ -1,0 +1,6 @@
+[submodule "vkCore/vendor/glm"]
+	path = vkCore/vendor/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "vkCore/vendor/glfw"]
+	path = vkCore/vendor/glfw
+	url = https://github.com/glfw/glfw.git
