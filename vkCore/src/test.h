@@ -1,10 +1,13 @@
-#include <vulkan/vulkan.h>
-
-#include <GLFW/glfw3.h>
-
-#include <iostream>
+#include "App.h"
+#include <memory>
 
 int t() {
-    std::cout << "ttttttttttttt";
+    spdlog::info("App test");
+    AppInformation info = {};
+    info.width = 640;
+    info.height = 480;
+    info.windowName = "Test";
+    App::getInstance()->init(info);
+    //window->destory();
     return 0;
 }
