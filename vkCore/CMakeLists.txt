@@ -28,6 +28,7 @@ file(GLOB_RECURSE FILES
 include_directories(
     ${VENDOR_PATH}/glfw/include
     ${VENDOR_PATH}/spdlog/include
+    ${VENDOR_PATH}/stb
     ${VENDOR_PATH}/glm
 )
 

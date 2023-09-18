@@ -13,6 +13,8 @@ set(VKCORE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/vkCore)
 
 add_subdirectory(${VKCORE_PATH})
 
+target_compile_definitions(vkCore PRIVATE DEBUG)
+
 link_directories(
     ${LIBRARY_OUTPUT_PATH}
     ${VKCORE_PATH}/bin
@@ -21,6 +23,7 @@ link_directories(
 include_directories(
     ${VENDOR_PATH}/glfw/include
     ${VENDOR_PATH}/glm
+    ${VENDOR_PATH}/stb
     ${VKCORE_PATH}/src
 )
 

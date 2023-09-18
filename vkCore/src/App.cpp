@@ -1,4 +1,6 @@
 #include "App.h"
+#include "VkCore.h"
+#include <memory>
 
 
 App* App::appInstance = nullptr;
@@ -17,7 +19,7 @@ App* App::getInstance() {
 bool App::init(AppInformation& info) {
     spdlog::info("Init App...");
     appInfo = info;
-    if(initWindow()) {
+    if(initWindow() && initVkCore()) {
         spdlog::info("Init App Successful!");
         return true;
     }
@@ -36,3 +38,26 @@ bool App::initWindow() {
     }
     return true;
 }
+
+bool App::initVkCore() {
+    appCore = std::make_shared<VkCore>();
+    if(appWindow) {
+        appCore->setWindow(appWindow);
+    }
+    if(!appCore->init()) {
+        return false;
+    }
+
+    return true;
+}
+
+void App::loop() {
+    while (!glfwWindowShouldClose(appWindow->getWindow())) {
+        glfwPollEvents();
+        // glfwSwapBuffers(window_->getWindow());
+        appCore->updateUniformBuffer();
+        appCore->drawFrame();
+    }
+}
+
+

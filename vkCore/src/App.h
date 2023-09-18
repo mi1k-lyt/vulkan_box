@@ -1,5 +1,6 @@
 #pragma once
 #include "GLFWWindow.h"
+#include "VkCore.h"
 #include <memory>
 
 struct AppInformation {
@@ -27,5 +28,6 @@ private:
 
 private:
     AppInformation appInfo;
-    std::shared_ptr<GLFWWindow> appWindow;
+    std::shared_ptr<GLFWWindow> appWindow = nullptr;
+    std::shared_ptr<VkCore> appCore = nullptr; 
 };
