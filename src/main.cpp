@@ -1,9 +1,3 @@
-#include <vulkan/vulkan.h>
-
-#include <GLFW/glfw3.h>
-
-#include <iostream>
-
 #include "App.h"
 
 int main() {
